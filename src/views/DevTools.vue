@@ -29,7 +29,7 @@ export default {
         const startDate = this.value1[0]
         const endDate = this.value1[1]
         const url =
-          'http://localhost:8001/api/dayDiff?startDate=' +
+          '/api/dayDiff?startDate=' +
           startDate +
           '&endDate=' +
           endDate
