@@ -36,6 +36,8 @@ export default {
         this.$axios.get(url).then((response) => {
           this.dayDiff = response.data.data
         })
+      } else {
+        this.dayDiff = 0
       }
     },
   },
