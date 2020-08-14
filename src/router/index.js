@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import DevTools from '../views/DevTools.vue'
+import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ Vue.use(VueRouter)
     path: '/tools',
     name: '开发小工具',
     component: DevTools
+  },
+  {
+    path: '/login',
+    name: '登录',
+    component: Login
   }
 ]
 
