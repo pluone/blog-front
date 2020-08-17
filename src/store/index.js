@@ -24,6 +24,10 @@ export default new Vuex.Store({
       sessionStorage.setItem("userInfo", JSON.stringify(''))
     }
   },
+  getters: {
+    token: state => state.token,
+    userInfo: state => state.userInfo
+  },
   actions: {
   },
   modules: {
