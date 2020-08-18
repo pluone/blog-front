@@ -2,12 +2,12 @@
     <div>
         <el-container>
             <el-main>
-                <el-form :model="form" :rules="rules" ref="loginForm" label-width="100px" class="loginf-form">
+                <el-form :model="formData" :rules="rules" ref="loginForm" label-width="100px" class="loginf-form">
                     <el-form-item label="用户名" prop="username">
-                        <el-input v-model="form.username"></el-input>
+                        <el-input v-model="formData.username"></el-input>
                     </el-form-item>
                     <el-form-item label="密码" prop="password">
-                        <el-input type="password" v-model="form.password"></el-input>
+                        <el-input type="password" v-model="formData.password"></el-input>
                     </el-form-item>
 
                     <el-form-item>
@@ -23,7 +23,7 @@
 export default {
     data() {
         return {
-            form: {
+            formData: {
                 username: '',
                 password: ''
             },
@@ -43,7 +43,7 @@ export default {
             this.$refs['loginForm'].validate((valid) => {
                 if(valid){
                     const _this = this
-                    this.$axios.post('/login', this.form).then(res => {
+                    this.$axios.post('/login', _this.formData).then(res => {
                         console.log(res.data)
                         const jwt = res.headers['authorization']
                         const userInfo = res.data.data
@@ -51,7 +51,7 @@ export default {
                         _this.$store.commit("SET_TOKEN", jwt)
                         _this.$store.commit("SET_USERINFO", userInfo)
 
-                        console.log(_this.$store.getters.getUser)
+                        console.log(_this.$store.getters.userInfo)
 
                         _this.$router.push("/blogs")
                     })

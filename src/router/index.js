@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import DevTools from '../views/DevTools.vue'
 import Login from '../views/Login.vue'
+import Blogs from '../views/Blogs.vue'
+import BlogDetial from '../views/BlogDetial.vue'
+import BlogEdit from '../views/BlogEdit.vue'
 
 Vue.use(VueRouter)
 
@@ -29,7 +32,34 @@ Vue.use(VueRouter)
     path: '/login',
     name: '登录',
     component: Login
-  }
+  },
+  {
+    path: '/blogs',
+    name: 'Blogs',
+    component: Blogs
+  },
+  {
+    path: '/blog/add',
+    name: 'BlogAdd',
+    component: BlogEdit,
+    meta: {
+      requireAuth: true
+    }
+  },
+  {
+    path: '/blog/:blogId',
+    name: 'BlogDetail',
+    component: BlogDetial
+  },
+  {
+    path: '/blog/:blogId/edit',
+    name: 'BlogEdit',
+    component: BlogEdit,
+    meta: {
+      requireAuth: true
+    }
+  },
+  
 ]
 
 const router = new VueRouter({
