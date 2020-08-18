@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Header></Header>
     <el-timeline>
       <el-timeline-item
         v-for="blog in blogs"
@@ -34,7 +35,9 @@
 </template>
 
 <script>
+import Header from '../components/Header'
 export default {
+  components: {Header},
   data() {
     return {
       blogs: {},
@@ -46,9 +49,7 @@ export default {
   methods: {
     page(currentPage) {
       const _this = this
-      debugger
       _this.$axios.get('/blogs?currentPage=' + currentPage).then((res) => {
-        debugger
         console.log(res)
         _this.blogs = res.data.data.records
         _this.currentPage = res.data.data.current

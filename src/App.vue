@@ -1,14 +1,15 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/blogs">Home</router-link> |
-      <router-link to="/about">About</router-link> | 
-      <router-link to="/tools">开发小工具</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
 
+<script>
+import Header from './components/Header'
+export default {
+  components: {Header}
+}
+</script>
 <style>
 #app {
   font-family: "Hiragino Sans GB","PingFang SC","Microsoft YaHei","微软雅黑","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -32,4 +33,5 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>
